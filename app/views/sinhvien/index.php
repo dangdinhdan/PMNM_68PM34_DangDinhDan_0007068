@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>danh sách sinh viên</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $title; ?></title>
+ 
 </head>
+
 <body>
-   <h1>đây là trang danh sách sinh viên</h1> 
+  <h1><?php echo $title; ?></h1>
+  <table >
+    <tr>
+      <th>STT</th>
+      <th>Mssv</th>
+      <th>Họ Tên</th>
+      <th>Giới tính</th>
+      <th>Lớp QL</th>
+    </tr>
+    <?php foreach ($sinhviens as $index => $sinhvien): ?>
+      <tr>
+        <th><?php echo $index +1; ?></th>
+        <th><?php echo $sinhvien['Mssv']; ?></th>
+        <th><?php echo $sinhvien['TenSV']; ?></th>
+        <th><?php echo $sinhvien['GioiTinh']; ?></th>
+        <th><?php echo $sinhvien['LopQL']; ?></th>
+      </tr>
+      <?php endforeach; ?>
+  </table>
 </body>
+
 </html>

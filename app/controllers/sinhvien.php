@@ -1,13 +1,19 @@
 <?php
-class sinhvien
+require_once '../app/core/controller.php';
+class sinhvien extends controller
 {
   public function index()
   {
-    require_once '../app/views/sinhvien/index.php';
+    $sinhvienModel = $this->model('sinhvienModel');
+    $sinhviens = $sinhvienModel -> getAllSinhvien();  
+  
+    // Trả về View
+    $this->view("sinhvien/index", ['sinhviens' => $sinhviens, 'title' => 'danh sach sinh vien']);
   }
 
   public function create()
   {
-    echo "Đây là trang tạo sinh viên";
+   
+    require_once "../app/views/sinhvien/create.php";
   }
 }
