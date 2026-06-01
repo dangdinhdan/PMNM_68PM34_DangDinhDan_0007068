@@ -3,7 +3,7 @@ class sinhvien
 {
   public function index()
   {
-    echo "Đây là trang sinh viên";
+    require_once '../app/views/sinhvien/index.php';
   }
 
   public function create()
