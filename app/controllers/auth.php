@@ -18,7 +18,7 @@ class auth
         header('Location: /sinhvien');
         exit();
       } else {
-        header('Location: /home/login');
+        header('Location: /auth/login');
         exit();
       }
     }

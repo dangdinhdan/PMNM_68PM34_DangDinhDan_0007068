@@ -21,8 +21,8 @@
     <?php foreach ($sinhviens as $index => $sinhvien): ?>
       <tr>
         <th><?php echo $index +1; ?></th>
-        <th><?php echo $sinhvien['Mssv']; ?></th>
-        <th><?php echo $sinhvien['TenSV']; ?></th>
+        <th><?php echo $sinhvien['MSSV']; ?></th>
+        <th><?php echo $sinhvien['HoTen']; ?></th>
         <th><?php echo $sinhvien['GioiTinh']; ?></th>
         <th><?php echo $sinhvien['LopQL']; ?></th>
       </tr>
