@@ -2,11 +2,16 @@
 require_once '../app/core/controller.php';
 class sinhvien extends controller
 {
-  public function index()
+  public function index($limit = 5, $offset = 0, $search = "")
   {
     $sinhvienModel = $this->model('sinhvienModel');
-    $sinhviens = $sinhvienModel -> getAllSinhvien();  
-    $this->view("sinhvien/index", ['sinhviens' => $sinhviens, 'title' => 'danh sach sinh vien']);
+    //$sinhviens = $sinhvienModel->getAllSinhVien();
+    $result = $sinhvienModel->paging($limit, $offset, $search);
+    $sinhviens = $result['sinhviens'];
+    $totalPages = $result['totalPages'];
+    // Trả về View
+    //require_once "../app/views/sinhvien/index.php";
+    $this->view('layout/layoutmaster', ['viewname' => 'sinhvien/index', 'sinhviens' => $sinhviens, 'title' => 'Danh sách sinh viên', 'totalPages' => $totalPages]);
   }
 
   public function create()

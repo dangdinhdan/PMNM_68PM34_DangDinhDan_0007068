@@ -3,7 +3,7 @@ class home
 {
   public function index()
   {
-    require_once '../app/views/sinhvien/index.php';
+    require_once '../app/views/home/index.php';
   }
 public function login()
   {
