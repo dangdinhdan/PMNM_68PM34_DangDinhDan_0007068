@@ -45,4 +45,31 @@ class SinhvienModel {
 
     return ['sinhviens' => $result, 'totalPages' => $totalPages];
   }
+  public function update($MSSV, $HoTen, $GioiTinh, $LopQL)
+  {
+    $query = "UPDATE tbl_sinhviens SET HoTen = :HoTen, GioiTinh = :GioiTinh, LopQL = :LopQL WHERE MSSV = :MSSV";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':MSSV', $MSSV);
+    $stmt->bindParam(':HoTen', $HoTen);
+    $stmt->bindParam(':GioiTinh', $GioiTinh);
+    $stmt->bindParam(':LopQL', $LopQL);
+    return $stmt->execute();
+  }
+
+  public function getSinhVienById($MSSV)
+  {
+    $query = "SELECT * FROM tbl_sinhviens WHERE MSSV = :MSSV";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':MSSV', $MSSV);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function delete($MSSV)
+  {
+    $query = "DELETE FROM tbl_sinhviens WHERE MSSV = :MSSV";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':MSSV', $MSSV);
+    return $stmt->execute();
+  }
 }
