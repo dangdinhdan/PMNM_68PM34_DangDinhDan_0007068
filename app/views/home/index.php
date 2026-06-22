@@ -9,6 +9,12 @@
 
 <body>
   <h1>Trang chủ</h1>
+  <a href="/sinhvien/index">
+    <button type="button">Quản lý sinh viên</button>
+  </a>
+  <a href="/lopql/index">
+    <button type="button">Quản lý lớp quản lý</button>
+  </a>
 </body>
 
 </html>

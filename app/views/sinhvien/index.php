@@ -59,7 +59,7 @@
                                     <?php endif; ?>
                                 </td>
 
-                                <td><?= $sinhvien['LopQL'] ?></td>
+                                <td><?= $sinhvien['MaLop'] ?></td>
 
                                 <td>
                                     <a href="/sinhvien/edit/<?= $sinhvien['MSSV'] ?>"

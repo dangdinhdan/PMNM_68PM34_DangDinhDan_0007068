@@ -29,7 +29,7 @@ class sinhvien extends controller
       $LopQL = $_POST['LopQL'];
 
       $sinhvienModel = $this->model('sinhvienModel');
-      $result = $sinhvienModel->create($MSSV, $HoTen, $GioiTinh);
+      $result = $sinhvienModel->create($MSSV, $HoTen, $GioiTinh, $LopQL);
       if ($result) {
         header("Location: /sinhvien/index");
         exit();
@@ -42,9 +42,9 @@ class sinhvien extends controller
 
   public function edit($MSSV)
   {
-    $id = (int)$MSSV;
+    
     $sinhvienModel = $this->model('sinhvienModel');
-    $sinhvien = $sinhvienModel->getSinhVienById($id);
+    $sinhvien = $sinhvienModel->getSinhVienById($MSSV);
 
     if (!$sinhvien) {
       echo "Sinh viên không tồn tại!";
@@ -74,9 +74,9 @@ class sinhvien extends controller
   }
   public function delete($MSSV)
   {
-    $id = (int)$MSSV;
+    
     $sinhvienModel = $this->model('sinhvienModel');
-    $result = $sinhvienModel->delete($id);
+    $result = $sinhvienModel->delete($MSSV);
 
     if ($result) {
       header("Location: /sinhvien/index");

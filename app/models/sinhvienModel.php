@@ -13,14 +13,14 @@ class SinhvienModel {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function create($MSSV, $HoTen, $GioiTinh, $LopQL)
+    public function create($MSSV, $HoTen, $GioiTinh, $MaLop)
   {
-    $query = "INSERT INTO sinhvien (MSSV, HoTen, GioiTinh, LopQL) VALUES ( :MSSV, :HoTen, :GioiTinh, :LopQL )";
+    $query = "INSERT INTO tbl_sinhviens (MSSV, HoTen, GioiTinh, MaLop) VALUES ( :MSSV, :HoTen, :GioiTinh, :MaLop )";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':MSSV', $MSSV);
     $stmt->bindParam(':HoTen', $HoTen);
     $stmt->bindParam(':GioiTinh', $GioiTinh);
-    $stmt->bindParam(':LopQL', $LopQL);
+    $stmt->bindParam(':MaLop', $MaLop);
     if ($stmt->execute()) {
       return true;
     } else {
@@ -45,14 +45,14 @@ class SinhvienModel {
 
     return ['sinhviens' => $result, 'totalPages' => $totalPages];
   }
-  public function update($MSSV, $HoTen, $GioiTinh, $LopQL)
+  public function update($MSSV, $HoTen, $GioiTinh, $MaLop)
   {
-    $query = "UPDATE tbl_sinhviens SET HoTen = :HoTen, GioiTinh = :GioiTinh, LopQL = :LopQL WHERE MSSV = :MSSV";
+    $query = "UPDATE tbl_sinhviens SET HoTen = :HoTen, GioiTinh = :GioiTinh, MaLop = :MaLop WHERE MSSV = :MSSV";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':MSSV', $MSSV);
     $stmt->bindParam(':HoTen', $HoTen);
     $stmt->bindParam(':GioiTinh', $GioiTinh);
-    $stmt->bindParam(':LopQL', $LopQL);
+    $stmt->bindParam(':MaLop', $MaLop);
     return $stmt->execute();
   }
 
